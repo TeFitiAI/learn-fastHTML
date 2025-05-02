@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+import gradio as gr
 
-app = FastAPI()
+def greet(name):
+    return f"Hello, {name}!"
 
-@app.get("/")
-def greet_json():
-    return {"Hello" : "World"}
+iface = gr.Interface(fn=greet, inputs="text", outputs="text")
+iface.launch()
